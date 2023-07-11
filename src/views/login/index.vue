@@ -17,7 +17,7 @@ import { hours } from '@/utlis/nowTime'
 //收集表单数据
 const from = reactive({
   username: 'admin',
-  password: '1111111'
+  password: '111111'
 })
 let loginForm = ref()
 //按钮加载效果
