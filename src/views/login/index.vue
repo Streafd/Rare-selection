@@ -5,10 +5,10 @@ import { reactive, ref } from 'vue'
 import { User, Lock } from '@element-plus/icons-vue'
 import { ElNotification, ElMessage } from 'element-plus'
 
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 //获取路由
 let $router = useRouter()
-
+let $route = useRoute()
 //引入相关小仓库
 import useUserStore from '../../store/user'
 let userStore = useUserStore()
@@ -17,7 +17,7 @@ import { hours } from '@/utlis/nowTime'
 //收集表单数据
 const from = reactive({
   username: 'admin',
-  password: '111111'
+  password: 'atguigu123'
 })
 let loginForm = ref()
 //按钮加载效果
@@ -32,8 +32,9 @@ const login = async () => {
   try {
     await userStore.getLogin(from)
     show.value = false
+    let redirect: any = $route.query.path || '/'
     //跳转到首页
-    $router.push('/')
+    $router.push({ path: redirect })
     ElNotification({
       type: 'success',
       message: hours(),

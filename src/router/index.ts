@@ -15,21 +15,5 @@ let router = createRouter({
     }
   }
 })
-router.beforeEach((to, from, next) => {
-  let { token, user } = useUserStore()
-  // console.log(token)
-  // if (token) {
-  //   console.log(1)
-  // }
-  //先判断token是否存在
-  // if(!token){
-  //   if()
-  // }else{
-  //   next()
-  // }
-  console.log(to)
-  console.log(from)
-  next()
-})
 
 export default router

@@ -18,18 +18,20 @@ import gloalComponent from './components/index.ts'
 //引入全局样式
 import '@/styles/index.scss'
 
-//获取应用实例对象
-const app=createApp(App)
+//引入路由鉴权文件
+import '@/router/permisstion.ts'
 
-app.use(ElementPlus,{
-  locale:zhCn
+//获取应用实例对象
+const app = createApp(App)
+
+app.use(ElementPlus, {
+  locale: zhCn
 })
 
 app.use(router)
 app.use(pinia)
 //安装自定义插件
 app.use(gloalComponent)
-
 
 //将应用挂载到挂载点上
 app.mount('#app')

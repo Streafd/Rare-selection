@@ -22,7 +22,7 @@ provide('token', isColless)
 <template>
   <div class="layout_contariner">
     <!-- 左侧菜单 -->
-    <div class="layout_slider" :class="isColless ? 'fold' : ''">
+    <div class="layout_slider">
       <!-- logo组件 -->
       <Logo></Logo>
       <el-scrollbar class="scrollbar" native>
@@ -68,9 +68,6 @@ provide('token', isColless)
         border-right: 0px;
       }
     }
-    &.fold {
-      width: $base-menu-min-width;
-    }
   }
   .layout_tabbar {
     position: fixed;
@@ -79,9 +76,10 @@ provide('token', isColless)
     width: calc(100% - $base-menu-width);
     height: $base-tabbar-height;
     color: #000;
+    background-color: pink;
     border-bottom: 1px solid #c6c6c6;
     box-shadow: 0px 2px 5px 0px rgba($color: #666, $alpha: 0.2);
-    transition: all 0.3s;
+    transition: all 0.5s;
     &.fold {
       width: calc(100% - $base-menu-min-width);
       left: $base-menu-min-width;
@@ -93,10 +91,10 @@ provide('token', isColless)
     left: $base-menu-width;
     width: calc(100% - $base-menu-width);
     height: calc(100vh - $base-tabbar-height);
-    // background-color: aquamarine;
+    background-color: aquamarine;
     padding: 20px;
     overflow: auto;
-    transition: all 0.3s;
+    transition: all 0.5s;
     &.fold {
       width: calc(100vw - $base-menu-min-width);
       left: $base-menu-min-width;

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 defineProps(['menuRouter'])
-const goRouter = (vc) => {}
 </script>
 
 <!-- 递归组件必须要有name，采用vue2的方式声明name，且语言必须相同，添加lang="ts" -->
@@ -13,11 +12,7 @@ export default {
   <!-- 循环路由，根据判断生成对相应的菜单 -->
   <template v-for="item in menuRouter" :key="item.path">
     <!-- 没有子二级路由 -->
-    <el-menu-item
-      v-if="!item.children && !item.meta.hidden"
-      :index="item.path"
-      @click="goRouter"
-    >
+    <el-menu-item v-if="!item.children && !item.meta.hidden" :index="item.path">
       <el-icon>
         <component :is="item.meta.icon"></component>
       </el-icon>

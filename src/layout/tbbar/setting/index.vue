@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import useLauOutSettingStore from '@/store/modules/setting.ts'
 import { ElMessage } from 'element-plus'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 //引入user小仓库
 import useUserStore from '@/store/user.ts'
 let useStore = useUserStore()
 
 let $router = useRouter()
+let $route = useRoute()
 let useLauOutStore = useLauOutSettingStore()
 
 //刷线按钮回调
@@ -35,7 +36,7 @@ const exit = async () => {
   //3.返回登录页
   try {
     let msg = await useStore.userLogout()
-    $router.push('/login')
+    $router.push({ path: '/login', query: { path: $route.path } })
     ElMessage({
       type: 'success',
       message: msg
@@ -56,7 +57,7 @@ const exit = async () => {
   <!-- 下拉框 -->
   <el-dropdown>
     <span class="el-dropdown-link">
-      {{ useStore.user.username }}
+      {{ useStore.user.name }}
       <el-icon class="el-icon--right">
         <arrow-down />
       </el-icon>

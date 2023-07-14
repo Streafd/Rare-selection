@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import { ref, inject } from 'vue'
+import { inject } from 'vue'
 import { useRoute } from 'vue-router'
 
 let $route = useRoute()
-const add = () => {
-  console.log($route.matched)
-}
 
 //接收layout组件传递过来的
 let isColless = inject('token')
